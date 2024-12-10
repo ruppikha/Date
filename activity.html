@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose an Activity</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(45deg, #fbc2eb, #a6c1ee);
+      color: #333;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      font-size: 3em;
+      margin-top: 10vh;
+    }
+    p {
+      font-size: 1.5em;
+    }
+    .activity-option {
+      margin: 20px;
+      display: inline-block;
+      text-align: center;
+    }
+    .activity-option img {
+      width: 200px;
+      height: 200px;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .activity-option img:hover {
+      transform: scale(1.1);
+    }
+    button {
+      background-color: #ff6f61;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #e64c3c;
+    }
+    .other-activity {
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Choose an Activity! 🎉</h1>
+  <p>What should we do on our date?</p>
+  <div class="activity-option">
+    <img src="/Users/ruppikha/Desktop/Date/images/qk9w9pg821ny.jpg" alt="Dinner">
+    <br>
+    <button onclick="goToConfirmation('Dinner')">Dinner 🍴</button>
+  </div>
+  <div class="activity-option">
+    <img src="/Users/ruppikha/Desktop/Date/images/28fqyk0hk2441.jpg" alt="Beach">
+    <br>
+    <button onclick="goToConfirmation('Beach')">Beach 🏖️</button>
+  </div>
+  <div class="activity-option">
+    <img src="/Users/ruppikha/Desktop/Date/images/Screen-Shot-2016-04-10-at-165142.png" alt="Painting">
+    <br>
+    <button onclick="goToConfirmation('Painting')">Painting 🎨</button>
+  </div>
+  <div class="activity-option">
+    <img src="/Users/ruppikha/Desktop/Date/images/images.jpeg" alt="Movie Night">
+    <br>
+    <button onclick="goToConfirmation('Movie Night')">Movie Night 🎥</button>
+  </div>
+  <div class="activity-option other-activity">
+    <img src="/Users/ruppikha/Desktop/Date/images/3mol6q.jpg" alt="Other">
+    <br>
+    <input type="text" id="other-activity-text" placeholder="Enter your activity">
+    <br>
+    <button onclick="goToConfirmation('Other')">Other 💡</button>
+  </div>
+  <script>
+   function goToConfirmation(activity) {
+  if (activity === 'Other') {
+    const customActivity = document.getElementById('other-activity-text').value;
+    if (customActivity) {
+      localStorage.setItem('chosenActivity', customActivity);  // Store custom activity with the correct key
+    } else {
+      alert('Please enter a valid activity!');
+      return;
+    }
+  } else {
+    localStorage.setItem('chosenActivity', activity);  // Store predefined activity with the correct key
+  }
+  window.location.href = 'time.html';
+}
+  </script>
+</body>
+</html>

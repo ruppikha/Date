@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirm the Date</title>
+  <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+        color: #333;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    
+    h1 {
+        font-size: 3em;
+        margin-top: 10vh;
+    }
+    
+    p {
+        font-size: 1.5em;
+        margin: 20px;
+    }
+    
+    input, button {
+        font-size: 1em;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        border: 2px solid #ff6f61;
+        transition: transform 0.3s;
+    }
+    
+    button {
+        background-color: #ff6f61;
+        color: white;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #e64c3c;
+        transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>Ooh nice idea! 😍</h1>
+  <p>You chose <b id="chosen-activity"></b>. When should we go?</p>
+  
+  <input type="date" id="date" placeholder="Select Date">
+  <br>
+  <input type="time" id="time" placeholder="Select Time">
+  <br><br>
+  
+  <button onclick="confirmDate()">Confirm</button>
+
+  <script>
+    // Set activity name here
+    const activity = localStorage.getItem('chosenActivity');  // Retrieve the activity with the correct key
+    document.getElementById('chosen-activity').textContent = activity;
+
+
+    function confirmDate() {
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+
+      if (date && time) {
+        // Store the selected date, time, and activity in localStorage
+        localStorage.setItem('activity', activity);
+        localStorage.setItem('date', date);
+        localStorage.setItem('time', time);
+
+        // Redirect to the confirmation page
+        window.location.href = 'confirmation.html';
+      } else {
+        alert("Please select both a date and time!");
+      }
+    }
+  </script>
+</body>
+</html>
+

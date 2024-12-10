@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirm the Date</title>
+  <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+        color: #333;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    
+    h1 {
+        font-size: 3em;
+        margin-top: 10vh;
+    }
+    
+    p {
+        font-size: 1.5em;
+        margin: 20px;
+    }
+    
+    #invite-card {
+        text-align: center;
+        padding: 20px;
+        border: 2px solid #ff6f61;
+        border-radius: 10px;
+        background: #fff;
+        display: inline-block;
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    #invite-card img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+
+    #invite-card h3 {
+        color: #ff6f61;
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    #invite-card p {
+        font-size: 1.2em;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    #message-box {
+        margin-top: 20px;
+        font-size: 1.2em;
+        color: #ff6f61;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="message"></div>
+  
+  <div id="shareable">
+    <h2>Here's your invite! 🎉</h2>
+    <div id="invite-card">
+      <img src="/Users/ruppikha/Desktop/Date/images/IMG_0039.jpeg" alt="Cute Invite Image"> 
+      <h3>You're Invited! 💌</h3>
+      <p>Activity: <b id="share-activity"></b></p>
+      <p>Date: <b id="share-date"></b></p>
+      <p>Time: <b id="share-time"></b></p>
+    </div>
+    <br>
+  </div>
+
+  <div id="message-box">
+    Send the screenshot of the invite to <b>ruppikha</b> please. 📸
+  </div>
+
+  <script>
+    // Retrieve the data from localStorage
+    const activity = localStorage.getItem('activity');
+    const date = localStorage.getItem('date');
+    const time = localStorage.getItem('time');
+
+    if (activity && date && time) {
+      document.getElementById('share-activity').textContent = activity;
+      document.getElementById('share-date').textContent = date;
+      document.getElementById('share-time').textContent = time;
+
+      document.getElementById('message').innerHTML = `
+        <p>Yay! We're going for <b>${activity}</b> on <b>${date}</b> at <b>${time}</b>. Can't wait! 😘</p>
+      `;
+    } else {
+      document.getElementById('message').textContent = "Oops! Something went wrong. Make sure all details are filled properly!";
+    }
+  </script>
+</body>
+</html>
