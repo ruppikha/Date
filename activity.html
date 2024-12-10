@@ -56,47 +56,48 @@
   <h1>Choose an Activity! 🎉</h1>
   <p>What should we do on our date?</p>
   <div class="activity-option">
-    <img src="/Users/ruppikha/Desktop/Date/images/qk9w9pg821ny.jpg" alt="Dinner">
+    <!-- Update the image path with the raw URL from GitHub -->
+    <img src="https://raw.githubusercontent.com/ruppikha/repository-name/main/images/qk9w9pg821ny.jpg" alt="Dinner">
     <br>
     <button onclick="goToConfirmation('Dinner')">Dinner 🍴</button>
   </div>
   <div class="activity-option">
-    <img src="/Users/ruppikha/Desktop/Date/images/28fqyk0hk2441.jpg" alt="Beach">
+    <img src="https://raw.githubusercontent.com/ruppikha/repository-name/main/images/28fqyk0hk2441.jpg" alt="Beach">
     <br>
     <button onclick="goToConfirmation('Beach')">Beach 🏖️</button>
   </div>
   <div class="activity-option">
-    <img src="/Users/ruppikha/Desktop/Date/images/Screen-Shot-2016-04-10-at-165142.png" alt="Painting">
+    <img src="https://raw.githubusercontent.com/ruppikha/repository-name/main/images/Screen-Shot-2016-04-10-at-165142.png" alt="Painting">
     <br>
     <button onclick="goToConfirmation('Painting')">Painting 🎨</button>
   </div>
   <div class="activity-option">
-    <img src="/Users/ruppikha/Desktop/Date/images/images.jpeg" alt="Movie Night">
+    <img src="https://raw.githubusercontent.com/ruppikha/repository-name/main/images/images.jpeg" alt="Movie Night">
     <br>
     <button onclick="goToConfirmation('Movie Night')">Movie Night 🎥</button>
   </div>
   <div class="activity-option other-activity">
-    <img src="/Users/ruppikha/Desktop/Date/images/3mol6q.jpg" alt="Other">
+    <img src="https://raw.githubusercontent.com/ruppikha/repository-name/main/images/3mol6q.jpg" alt="Other">
     <br>
     <input type="text" id="other-activity-text" placeholder="Enter your activity">
     <br>
     <button onclick="goToConfirmation('Other')">Other 💡</button>
   </div>
   <script>
-   function goToConfirmation(activity) {
-  if (activity === 'Other') {
-    const customActivity = document.getElementById('other-activity-text').value;
-    if (customActivity) {
-      localStorage.setItem('chosenActivity', customActivity);  // Store custom activity with the correct key
-    } else {
-      alert('Please enter a valid activity!');
-      return;
+    function goToConfirmation(activity) {
+      if (activity === 'Other') {
+        const customActivity = document.getElementById('other-activity-text').value;
+        if (customActivity) {
+          localStorage.setItem('chosenActivity', customActivity);  // Store custom activity with the correct key
+        } else {
+          alert('Please enter a valid activity!');
+          return;
+        }
+      } else {
+        localStorage.setItem('chosenActivity', activity);  // Store predefined activity with the correct key
+      }
+      window.location.href = 'time.html';
     }
-  } else {
-    localStorage.setItem('chosenActivity', activity);  // Store predefined activity with the correct key
-  }
-  window.location.href = 'time.html';
-}
   </script>
 </body>
 </html>
